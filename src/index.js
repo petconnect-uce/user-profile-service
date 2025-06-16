@@ -20,3 +20,6 @@ app.use('/api/profile', userProfileRoutes);
 app.listen(port, () => {
   console.log(`User Profile service running on port ${port}`);
 });
+
+// Validación de imagen
+app.use('/uploads', express.static('uploads'));
