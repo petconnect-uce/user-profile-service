@@ -1,18 +1,20 @@
-# Imagen base
-FROM node:18
+# Usa imagen oficial de Node.js
+FROM node:20
 
-# Crear directorio de trabajo
-WORKDIR /app
+# Crea directorio de trabajo
+WORKDIR /usr/src/app
 
-# Copiar archivos
+# Copia package.json y package-lock.json
 COPY package*.json ./
+
+# Instala dependencias
 RUN npm install
 
-# Copiar el resto del código
+# Copia el resto del código
 COPY . .
 
-# Exponer el puerto 3001 (o el que uses)
+# Expone el puerto 3001
 EXPOSE 3001
 
-# Comando por defecto
+# Comando de inicio
 CMD ["npm", "start"]

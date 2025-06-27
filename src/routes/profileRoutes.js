@@ -106,4 +106,17 @@ router.delete('/', authMiddleware, async (req, res) => {
   }
 });
 
+// Obtener perfil por userId (para otros microservicios)
+router.get('/user/:userId', async (req, res) => {
+  try {
+    const profile = await UserProfile.findOne({ userId: req.params.userId });
+    if (!profile) return res.status(404).json({ message: 'User not found' });
+    res.json(profile);
+  } catch (err) {
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+
+
 module.exports = router;

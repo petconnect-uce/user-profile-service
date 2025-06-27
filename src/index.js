@@ -14,7 +14,8 @@ connectDB();
 app.use(express.json());
 
 // Rutas
-app.use('/api/profile', userProfileRoutes);
+app.use('/api/user-profile', userProfileRoutes);
+
 
 // Iniciar servidor
 app.listen(port, () => {
@@ -23,3 +24,4 @@ app.listen(port, () => {
 
 // Validación de imagen
 app.use('/uploads', express.static('uploads'));
+ 
